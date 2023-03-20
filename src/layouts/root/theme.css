@@ -1,0 +1,28 @@
+:root {
+    --primary-hue: 189; 
+    --primary-sat: 66%; 
+    --primary-lum: 8%;
+    --primary-raw: var(--primary-hue), var(--primary-sat), var(--primary-lum);
+    --primary-hsl: hsl(var(--primary-raw)); 
+
+    --second-hue: 60;
+    --second-sat: 53%;
+    --second-lum: 97%;
+    --second-raw: var(--second-hue), var(--second-sat), var(--second-lum);
+    --second-hsl: hsl(var(--second-raw)); 
+
+    --accent-hue: 17;
+    --accent-sat: 76%;
+    --accent-lum: 49%;
+    --accent-raw: var(--accent-hue), var(--accent-sat), var(--accent-lum);
+    --accent-hsl: hsl(var(--accent-raw)); 
+
+    background-color: var(--primary-hsl);
+    color-scheme: dark;
+
+}
+:root * {
+    color: var(--second-hsl); 
+    box-sizing: border-box;
+    outline: transparent;
+}
