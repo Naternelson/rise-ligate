@@ -1,8 +1,10 @@
+import { env } from 'process';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { app } from './firebase/config';
+import { connect } from './firebase/emulators';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { router } from './routing';
@@ -24,3 +26,4 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 app()
+connect()

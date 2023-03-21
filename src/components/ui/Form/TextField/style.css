@@ -4,6 +4,7 @@ input {
   width: 100%;
 }
 
+/* Form Group - contains all the elements, label, Field-group, input, helper message*/
 .form-group {
   position: relative;
   --padding: 0.5rem;
@@ -15,6 +16,8 @@ input {
 .form-group:focus-within * {
   color: hsla(var(--second-raw), 0.9);
 }
+
+/* Changes to FieldGroup based on the State of the class*/ 
 
 .field-group {
   display: flex;
@@ -45,6 +48,7 @@ input {
   );
 }
 
+/* Modify input if the field group has a Icon button attached*/
 .field-group input {
   margin: 0 var(--padding);
 }
@@ -53,6 +57,8 @@ input {
   margin: 0;
   margin-left: var(--padding);
 }
+
+/* Label */
 
 label {
   pointer-events: none;
@@ -74,6 +80,7 @@ label {
   transition-delay: 0s, 0.3s, 0s, 0s !important;
 }
 
+/* Helper message */
 span.helper-message {
     display: block;
     height: 1rem; 
@@ -83,4 +90,14 @@ span.helper-message {
 }
 span.helper-message.blank {
     height: 0;
+}
+
+/* Error State*/
+
+.form-group.error label, .form-group.error .helper-message {
+    color: var(--error-hsl); 
+}
+
+.form-group.error:focus-within input {
+    color: var(--second-hsl);
 }

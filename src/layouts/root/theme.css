@@ -12,10 +12,17 @@
     --second-hsl: hsl(var(--second-raw)); 
 
     --accent-hue: 17;
-    --accent-sat: 76%;
+    --accent-sat: 68%;
     --accent-lum: 49%;
     --accent-raw: var(--accent-hue), var(--accent-sat), var(--accent-lum);
     --accent-hsl: hsl(var(--accent-raw)); 
+
+    --error-hue: 341; 
+    --error-sat: 96%;
+    --error-lum: 55%;
+    --error-raw: var(--error-hue), var(--error-sat), var(--error-lum);
+    --error-hsl: hsl(var(--error-raw)); 
+
 
     background-color: var(--primary-hsl);
     color-scheme: dark;

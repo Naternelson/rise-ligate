@@ -1,3 +1,9 @@
-#btn-divider {
-    margin-top: 1.5rem;
+
+
+#login-form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
 }

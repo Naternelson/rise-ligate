@@ -49,7 +49,7 @@ const useHasValue = (name: string) => {
   return value && value.trim() !== "";
 };
 
-const HelperMessage = (props: { message?: string | boolean }) => {
+export const HelperMessage = (props: { message?: string | boolean }) => {
   return <Inline className={[ !props.message && "blank", "helper-message" ]}>{props.message}</Inline>;
 };
 
