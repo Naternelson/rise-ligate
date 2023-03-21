@@ -1,3 +1,25 @@
-.full-width {
+button {
+    border: none; 
+    cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease;
+}
+
+button.full-width {
     width: 100%; 
+}
+button.filled {
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    padding: .5rem;
+}
+
+button.filled.primary{
+    background-color: var(--primary-hsl)
+}
+button.filled.primary:hover {
+    background-color: hsl(var(--primary-hue), var(--primary-sat), calc(var(--primary-lum) - 4%));
+    /* background-color: var(--accent-hsl); */
 }

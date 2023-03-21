@@ -1,0 +1,6 @@
+.divider {
+    width: 100%;
+    border-radius: 5px;
+    border: .75px solid hsl(var(--primary-hue), calc(var(--primary-sat) - 50%), calc(var(--primary-lum) + 30%));
+    margin: .3rem 0; 
+}
