@@ -1,0 +1,86 @@
+input {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+}
+
+.form-group {
+  position: relative;
+  --padding: 0.5rem;
+}
+.form-group * {
+  color: hsla(var(--second-raw), 0.5);
+  transition: color 0.3s ease, background-color 0.2s ease;
+}
+.form-group:focus-within * {
+  color: hsla(var(--second-raw), 0.9);
+}
+
+.field-group {
+  display: flex;
+  flex-direction: row;
+  background-color: hsl(
+    var(--primary-hue),
+    var(--primary-sat),
+    calc(var(--primary-lum) + 2%)
+  );
+  height: 2rem;
+  border-radius: 2px 2px 0 0;
+}
+.form-group:hover .field-group {
+  background-color: hsl(
+    var(--primary-hue),
+    var(--primary-sat),
+    calc(var(--primary-lum) - 1%)
+  );
+}
+.form-group:hover * {
+  color: hsla(var(--second-raw), 0.9);
+}
+.field-group:focus-within {
+  background-color: hsl(
+    var(--primary-hue),
+    var(--primary-sat),
+    calc(var(--primary-lum) - 2%)
+  );
+}
+
+.field-group input {
+  margin: 0 var(--padding);
+}
+
+.form-group:has(div.icon-button) input {
+  margin: 0;
+  margin-left: var(--padding);
+}
+
+label {
+  pointer-events: none;
+  position: relative;
+  font-size: 1rem;
+  top: 1.6rem;
+  left: var(--padding);
+  transition-property: top, left, font-size, color !important;
+  transition-duration: 0.3s !important;
+  transition-delay: 0s, 0s, 0s, 0s !important;
+  transition-timing-function: ease !important;
+}
+
+.form-group:focus-within label,
+.form-group.has-value label {
+  top: 0;
+  left: 0;
+  font-size: 0.7rem;
+  transition-delay: 0s, 0.3s, 0s, 0s !important;
+}
+
+span.helper-message {
+    display: block;
+    height: 1rem; 
+    font-size: .7rem;
+    overflow: hidden;
+    transition: height .3s ease, color .3s ease !important;
+}
+span.helper-message.blank {
+    height: 0;
+}

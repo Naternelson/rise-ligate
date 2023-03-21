@@ -1,7 +1,7 @@
 import { CSSProperties, DetailedHTMLProps, forwardRef, HTMLAttributes, MouseEventHandler, PropsWithChildren } from "react"
 
 export type ClassName = string | Array<string | false | undefined | ClassName> 
-export type BaseProps <T extends HTMLElement> ={
+export type BaseProps <T extends HTMLOrSVGElement> ={
     className?: ClassName
     style?: CSSProperties,
     id?: string,
@@ -9,7 +9,7 @@ export type BaseProps <T extends HTMLElement> ={
     onClick?: MouseEventHandler<T>, 
 }
 
-export const resolveProperties = <T extends HTMLElement, P extends BaseProps<T>>(props: P):DetailedHTMLProps<HTMLAttributes<T>,T> => {
+export const resolveProperties = <T extends HTMLOrSVGElement, P extends BaseProps<T>>(props: P) => {
   const {className, onHover, ...baseProps} = props 
   return {
     ...baseProps,
@@ -20,7 +20,7 @@ export const resolveProperties = <T extends HTMLElement, P extends BaseProps<T>>
 
 
 
-const resolveClassName = (className?: ClassName) => {
+export const resolveClassName = (className?: ClassName) => {
     return [className].flat().filter(el => !!el).join(" ")
 }
 
