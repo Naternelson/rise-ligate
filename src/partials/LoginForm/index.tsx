@@ -19,31 +19,34 @@ import { loginSchema } from "./schema";
 import { FirebaseError } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { Container } from "../../components/ui/Container";
 
 export const LoginForm = () => {
   const nav = useNavigate();
   return (
-    <Form
-      id={"login-form"}
-      options={{ resolver: joiResolver(loginSchema) }}
-      onSubmit={(formContext) => async (data) => {
-        signInWithEmailAndPassword(getAuth(), data.email, data.password)
-          .then(onSuccess(nav))
-          .catch(onError(formContext));
-      }}
-    >
-      <TextField name="email" label={"Email"} />
-      <PasswordGroup>
-        <Password name="password" label={"Password"} />
-      </PasswordGroup>
-      <Box>
-        <FormErrorField />
-        <Divider id={"btn-divider"} />
-      </Box>
-      <Button fullWidth type="submit">
-        Login
-      </Button>
-    </Form>
+    <Container variant="sm">
+      <Form
+        id={"login-form"}
+        options={{ resolver: joiResolver(loginSchema) }}
+        onSubmit={(formContext) => async (data) => {
+          signInWithEmailAndPassword(getAuth(), data.email, data.password)
+            .then(onSuccess(nav))
+            .catch(onError(formContext));
+        }}
+      >
+        <TextField name="email" label={"Email"} />
+        <PasswordGroup>
+          <Password name="password" label={"Password"} />
+        </PasswordGroup>
+        <Box>
+          <FormErrorField />
+          <Divider id={"btn-divider"} />
+        </Box>
+        <Button fullWidth type="submit">
+          Login
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
