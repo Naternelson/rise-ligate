@@ -1,0 +1,23 @@
+#carousel {
+    width: 50rem; 
+    height: 30rem; 
+}
+
+.carousel-button-group {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 0; 
+    width: 100%; 
+    justify-content: center;
+    gap: 2rem;
+}
+
+.className {
+    --shadow-color: var(--primary-hue), var(--primary-sat), 1%; 
+    border-radius: 5px ;
+    height: 20rem; 
+    width: 20rem; 
+    background-color: hsl(var(--primary-hue), var(--primary-sat), calc(var(--primary-lum) - 3%));
+    box-shadow: 1px 1.5px 3px hsla(var(--shadow-color), .5), 2px 3px 5px hsla(var(--shadow-color), .45), 4px 6px 8px hsla(var(--shadow-color), .4);
+}

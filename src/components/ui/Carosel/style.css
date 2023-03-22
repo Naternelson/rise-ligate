@@ -1,0 +1,66 @@
+.carousel {
+  --animation-time: 600ms;
+  --easing: ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0; 
+  left: 100%;
+  visibility: hidden;
+}
+.slide.active, .slide.leaving {
+  top: 0;
+  left: 0;
+  visibility: visible;
+}
+
+@keyframes slide-from-right {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes slide-from-left {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes slide-out-left {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@keyframes slide-out-right {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.slide.active.from-right {
+  animation: slide-from-right var(--animation-time) var(--easing)  both;
+}
+.slide.active.from-left {
+  animation: slide-from-left var(--animation-time) var(--easing)  both;
+}
+.slide.leaving.to-left {
+    animation: slide-out-left var(--animation-time) var(--easing) both;
+}
+.slide.leaving.to-right {
+    animation: slide-out-right var(--animation-time) var(--easing) both;
+}
