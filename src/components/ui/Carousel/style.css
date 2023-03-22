@@ -1,6 +1,6 @@
 .carousel {
   --animation-time: 600ms;
-  --easing: ease;
+  --easing:cubic-bezier(0.87, 0, 0.13, 1);
   position: relative;
   overflow: hidden;
 }
