@@ -1,34 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useAppDispatch } from "../../store";
-import { authActions } from "../../store/auth/slice";
-import { Box } from "../../components/ui/Box";
+
+import { useAppSelector } from "../../store";
 export const DashboardLayout = () => {
-  const signedIn = useAuthListener();
   const nav = useNavigate();
-  if (signedIn === false) nav("/", {replace:true});
+  const uid = useAppSelector((s) => s.auth.uid);
+  useEffect(() => {
+    if (!uid ) nav("/", { replace: true });
+  }, [uid, nav]);
   return (
     <>
-      {signedIn === "loading" && <Box>Loading...</Box>}
-      {signedIn === true && <Outlet />}
+      <Outlet />
     </>
   );
-};
-
-const useAuthListener = () => {
-  const dispatch = useAppDispatch();
-  const [state, setState] = useState<"loading" | boolean>("loading");
-  useEffect(() => {
-    return onAuthStateChanged(getAuth(), (u) => {
-      if (u) {
-        dispatch(authActions.signedIn(u.uid));
-        setState(true);
-      } else {
-        dispatch(authActions.signedOff());
-        setState(false);
-      }
-    });
-  }, []);
-  return state;
 };

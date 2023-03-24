@@ -20,6 +20,7 @@ import { FirebaseError } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Container } from "../../components/ui/Container";
+import { wait } from "../../components/utility/time";
 
 export const LoginForm = () => {
   const nav = useNavigate();
@@ -29,7 +30,7 @@ export const LoginForm = () => {
         id={"login-form"}
         options={{ resolver: joiResolver(loginSchema) }}
         onSubmit={(formContext) => async (data) => {
-          signInWithEmailAndPassword(getAuth(), data.email, data.password)
+          return Promise.all([signInWithEmailAndPassword(getAuth(), data.email, data.password), wait(1000)])
             .then(onSuccess(nav))
             .catch(onError(formContext));
         }}

@@ -1,22 +1,25 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { UserType } from "../../models";
 
-interface S {
-    uid: string | null 
-}
+type S =  UserType
 
-const initialState: S = {
-    uid: null 
-}
+const initialState: S = {}
 
 export const slice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        signedIn: (s, p:PayloadAction<string>) => {
-            s.uid = p.payload
+        addUser: (_s, p: PayloadAction<UserType>) => {
+            return p.payload
         },
-        signedOff: (s) => {
-            s.uid = null 
+        stripUser: (s) => {
+            return {uid: s.uid}
+        },
+        updateUser: (s, p:PayloadAction<Partial<UserType>>) => {
+            return {...s, ...p.payload}
+        },
+        signedOff: () => {
+            return initialState 
         }
     }
 })

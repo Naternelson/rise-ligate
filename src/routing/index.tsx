@@ -13,16 +13,17 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
-      }
-    ],
-  }, {
-    path: "/dashboard",
-    element: <DashboardLayout/>,
-    children: [
-        {
+      },
+      {
+        path: "/dashboard",
+        element: <DashboardLayout />,
+        children: [
+          {
             index: true,
-            element: <Dashboard/>
-        }
+            element: <Dashboard />,
+          },
+        ],
+      },
     ]
   }
 ]);

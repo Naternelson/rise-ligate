@@ -16,9 +16,21 @@ form::after {
     transition: opacity .3s ease;
 }
 
+@keyframes wave {
+    0%,100%{opacity: .2;}
+    50%{opacity: .5;}
+}
+
+@keyframes fade-in {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: .2;}
+}
+
 form.loading::after {
     pointer-events: initial;
-    opacity: .3
+    opacity: .3; 
+    animation: fade-in 1500ms ease-in-out, wave 1500ms ease-in-out 1500ms infinite alternate;
 }
 
 form.loading button[type=submit] {
